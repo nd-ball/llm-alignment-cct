@@ -5,7 +5,7 @@ Department of IT, Analytics, and Operations, University of Notre Dame
 
 [[`Paper`](TODO-ARXIV-URL)] [[`BibTeX`](#citation)]
 
-This repository contains the code and data for the paper *Carefully Considering Culture: Analyzing LLM Alignment in Single- and Multi-Cultural Settings using Cultural Consensus Theory*. We apply Cultural Consensus Theory (CCT) from cultural anthropology to evaluate how well Large Language Models (LLMs) align with human cultural consensus. Using the World Values Survey (WVS) Wave 7 across 10 countries and 12 domains, we compare an ensemble of 10 LLMs against human respondents and identify three distinct regimes of model behavior: *Consensus Gap*, *Heterogeneity Gap*, and *Consensus Inflation*.
+This repository contains the code and data for the paper *Carefully Considering Culture: Analyzing LLM Alignment in Single- and Multi-Cultural Settings using Cultural Consensus Theory*. We apply Cultural Consensus Theory (CCT) from cultural anthropology to evaluate how well Large Language Models (LLMs) align with human cultural consensus. Using the World Values Survey (WVS) Wave 7 across 10 countries and 12 domains, we compare an ensemble of 10 LLMs against human respondents and identify three distinct regimes of model behavior: *Consensus Gap*, *Heterogeneity Gap*, *Consensus Attenuation* and *Consensus Inflation*.
 
 ## Table of Contents
 
@@ -19,7 +19,9 @@ This repository contains the code and data for the paper *Carefully Considering 
 
 ## Overview
 
-Standard approaches to evaluating LLM cultural alignment rely on group-level aggregation or distributional metrics, which obscure intra-group heterogeneity. CCT instead models culture as a distribution of shared meanings, estimating both (i) a group-level consensus answer for each survey item and (ii) each respondent's cultural competence score, defined as the degree of alignment with that consensus. This repository provides the full pipeline to reproduce our analysis: collecting WVS responses from an ensemble of LLMs, fitting CCT models jointly on humans and LLMs, and computing the two alignment metrics introduced in the paper — Consensus Consistency (CC) and Difference in Variance (∆VE).
+Standard approaches to evaluating LLM cultural alignment rely on group-level aggregation or distributional metrics, which obscure intra-group heterogeneity. CCT instead models culture as a distribution of shared meanings, estimating both (i) a group-level consensus answer for each survey item and (ii) each respondent's cultural competence score, defined as the degree of alignment with that consensus. This repository provides the full pipeline to reproduce our analysis: collecting WVS responses from an ensemble of LLMs, fitting CCT models jointly on humans and LLMs, and computing the two alignment metrics introduced in the paper
+- Consensus Consistency (CC) 
+- Difference in Variance (∆VE).
 
 The ensemble consists of 10 models (GPT-OSS:120B, Llama3.1:70B, Llama3:70B, Qwen2.5vl:72B, Qwen2.5vl:32B, Qwen2.5vl:7B, Qwen3:32B, Qwen:7B, Phi3:instruct, and GPT-4o), each queried with 6 prompt templates (baseline, explicit, parentheses, directive, chain-of-thought, roleplay) for each of the 10 countries. Countries are grouped into *single-culture* (Japan, Armenia, Germany, Greece, Netherlands) and *multi-culture* (Colombia, Mexico, Malaysia, Peru, United States) based on the Ethnic Fractionalization Index.
 
@@ -51,9 +53,9 @@ We use AnthroTools version 2.0 for CCT estimation.
 
 We use WVS Wave 7, which is freely available to registered users. To access the data:
 
-1. Register at the [WVS website](https://www.worldvaluessurvey.org/WVSDocumentationWV7.jsp) and download the Wave 7 country-pooled datafile.
-2. Place the downloaded file in `TODO-DATA-FOLDER/human/` (see the full list of 65 participating countries in Appendix A of the paper).
-3. Run the preprocessing script to filter respondents with missing values and to exclude domains with fewer than four items:
+1. Register at the [WVS website](https://www.worldvaluessurvey.org/WVSDocumentationWV7.jsp) and download the WVS Cross-National Wave 7.zip file.
+2. Extract WVS_Cross-National_Wave_7_csv_v6_0.csv file
+3. Run the preprocessing script extract human responses for selected 10 countries:
 
 ```bash
 python TODO-PREPROCESS-SCRIPT.py
