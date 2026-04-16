@@ -61,7 +61,7 @@ We use WVS Wave 7, which is freely available to registered users. To access the 
 python TODO-PREPROCESS-SCRIPT.py
 ```
 
-This produces the human response matrices H of shape (N_H × M) for each country-domain pair, where M is the number of questions in the domain. The responses are saved `/Data/Human/`.
+This produces the human response matrices H of shape (N_H × M) for each country-domain pair, where M is the number of questions in the domain. The responses are saved `/Data/<DOMAIN>/<COUNTRY>/human.csv`.
 
 ### LLM responses
 
