@@ -67,7 +67,7 @@ This produces the human response matrices H of shape (N_H × M) for each country
 
 The full set of LLM responses used in the paper is already provided in this repository under `/Data/<DOMAIN>/<COUNTRY>/10LLMs.csv`. The folder is organized by domain and country, with one CSV file per country-domain pair containing responses from all 10 models across all 6 prompt templates:
 
-Each `/Data/<DOMAIN>/<COUNTRY>/10LLMs.csv` file contains the LLM response matrix L of shape (60 × M), where 60 = 10 models × 6 prompt templates and M is the number of questions in the domain. The 10 models are GPT-OSS:120B, Llama3.1:70B, Llama3:70B, Qwen2.5vl:72B, Qwen2.5vl:32B, Qwen2.5vl:7B, Qwen3:32B, Qwen:7B, Phi3:instruct, and GPT-4o. The 6 prompt templates (baseline, explicit, parentheses, directive, chain-of-thought, roleplay) are described in Appendix A of the paper. All responses were collected with temperature set to 0 via a university-hosted Open WebUI instance for the open-source models and via the OpenAI API for GPT-4o.
+Each `/Data/<DOMAIN>/<COUNTRY>/10LLMs.csv` file contains the LLM response matrix L of shape (60 × M), where 60 = 10 models × 6 prompt templates and M is the number of questions in the domain. The 10 models are GPT-OSS:120B, Llama3.1:70B, Llama3:70B, Qwen2.5vl:72B, Qwen2.5vl:32B, Qwen2.5vl:7B, Qwen3:32B, Qwen:7B, Phi3:instruct, and GPT-4o. The 6 prompt templates (baseline, explicit, parentheses, directive, chain-of-thought, roleplay) are described in Appendix A of the paper. 
 
 ### Combining Human and LLM responses
 
@@ -85,8 +85,8 @@ After preparing the human and LLM response matrices, reproduce the paper's resul
 Run the two R scripts to fit the CCT models and write per-domain summaries.
 
 ```bash
-Rscript TODO-R-SCRIPTS-FOLDER/CCT_Competence.R
-Rscript TODO-R-SCRIPTS-FOLDER/CCT_CC_VE.R
+Rscript scripts/CCT_Competence.R
+Rscript scripts/CCT_CC_VE.R
 ```
 
 `CCT_Competence.R` fits a joint CCT model on `J = [H, L]` and writes per-respondent competence scores to `TODO-OUTPUT-FOLDER/Competence/competence_<DOMAIN>.csv`. `CCT_CC_VE.R` fits separate CCT models on H and L, computes CC (Equation 3) and ∆VE (Equation 4), and writes the results to `TODO-OUTPUT-FOLDER/CC_VE/CC_VE_<DOMAIN>.csv`.
