@@ -74,7 +74,7 @@ Each `/Data/<DOMAIN>/<COUNTRY>/10LLMs.csv` file contains the LLM response matrix
 ```bash
 python combine_human_LLMs.py
 ```
-
+This combines the human and LLM responses for each country-domain pair. The responses are saved `/Data/<DOMAIN>/<COUNTRY>/human_10LLMs.csv`.
 
 ## Reproducing Paper Results
 
