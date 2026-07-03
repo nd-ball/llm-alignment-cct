@@ -3,7 +3,7 @@
 Krishna Pothugunta, John P. Lalor
 Department of IT, Analytics, and Operations, University of Notre Dame
 
-[[`Paper`](TODO-ARXIV-URL)] [[`BibTeX`](#citation)]
+[[`Paper`](https://aclanthology.org/2026.findings-acl.1323/)] [[`BibTeX`](#citation)]
 
 This repository contains the code and data for the paper *Carefully Considering Culture: Analyzing LLM Alignment in Single- and Multi-Cultural Settings using Cultural Consensus Theory*. We apply Cultural Consensus Theory (CCT) from cultural anthropology to evaluate how well Large Language Models (LLMs) align with human cultural consensus. Using the World Values Survey (WVS) Wave 7 across 10 countries and 12 domains, we compare an ensemble of 10 LLMs against human respondents and identify three distinct regimes of model behavior: *Consensus Gap*, *Heterogeneity Gap*, *Consensus Attenuation* and *Consensus Inflation*.
 
